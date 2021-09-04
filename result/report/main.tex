@@ -1,0 +1,370 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{hhline}
+\usepackage{svg}
+\usepackage{fancyvrb}
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\begin{document}
+
+\input{result/report/titlepage}
+\section*{Instructions}
+Please do not modify the template, except for putting your solutions, names and legi-NR.
+% \textbf{If you exceed the space, points might be subtracted}.
+\newpage
+% \section*{Part 1 [20 points]}
+% \begin{enumerate}[label=(\alph*)]
+%             \item \textbf{[10 points]} Plot a single line graph with 95th percentile latency on the y-axis (the
+%             y-axis should range from 0 to 5 ms) and QPS on the x-axis (the x-axis should range from 0 to 70K).
+%             Label your axes. State how many runs you averaged across (we recommend three) and include error bars.
+%             There should be 7 lines in total in your plot, showing the performance of memcached running with no
+%             interference and six different sources of interference: cpu, l1d, l1i, l2, l3, membw. The readability of your
+%             plot will be part of your grade.
+%             \begin{figure}[htbp]
+%                 \centering
+%                 \includesvg{result/report/part1}
+%                 \caption{\texttt{Memcached} Latency Distribution with Different Interferences under Achieved p95 QPS}
+%                 \label{fig:1}
+%               \end{figure} 
+
+%               We average the result across \textbf{\emph{ten}} runs.
+%             \item \textbf{[6 points]} Describe how the tail latency and saturation point (the “knee in the curve”) of
+%             memcached is affected by each type of interference. Also describe your hypothesis for why memcached performance is
+%             affected in this way.
+
+%             \input{result/report/p12}
+            
+%             \item \textbf{[2 points]} Explain the use of the taskset command in the container commands for memcached and iBench
+%             in the provided scripts. Why do we run some of the iBench benchmarks on the same core as memcached and others on a different core?
+            
+%             \input{result/report/p13}
+            
+%             \item \textbf{[2 point]} Assuming a service level objective (SLO) for memcached of up to 2 ms 95th percentile latency at 40K QPS,
+%             which iBench source of interference can safely be collocated with memcached without violating this SLO? Explain your reasoning.
+%             \label{p1:d}
+%             \input{result/report/p14}
+% \end{enumerate}
+% \section*{Part 2 [25 points]}
+% \begin{enumerate}
+%     \item \textbf{[12 points]} Fill in the following table with the normalized execution time of each batch job with each source of
+%     interference. The execution time should be normalized to the job’s execution time with no interference. Color-code each field in the
+%     table as follows: {\color{Green}green} if the normalized execution time is less than or equal to 1.3, {\color{YellowOrange}orange} if the normalized execution time is over 1.3
+%     and up to 2, and {\color{Red}red} if the normalized execution time is greater than 2. Summarize in a paragraph the resource interference sensitivity of
+%     each batch job. 
+% \begin{center}
+% \begin{tabular}{ |c|c|c|c|c|c|c|c| } 
+% \hline
+%  \textbf{Workload} & \texttt{\textbf{none}} & \texttt{\textbf{cpu}} & \texttt{\textbf{l1d}} & \texttt{\textbf{l1i}} & \texttt{\textbf{l2}} & \texttt{\textbf{llc}} & \texttt{\textbf{memBW}}  \\
+%  \hline\hline
+%     \input{result/report/table}
+% \end{tabular}
+% \end{center}
+%     \input{result/report/p21}
+    
+%     \item \textbf{[3 points]} Explain in a few sentences what the interference profile table tells you about the resource requirements
+%     for each application. Which jobs (if any) seem like good candidates to collocate with memcached from Part 1, without violating the SLO of
+%     2 ms P95 latency at 40K QPS? 
+    
+%     \input{result/report/p22}
+
+%     \item \textbf{[10 points]} Plot a single line graph with speedup as the y-axis (normalized time to the single thread config,
+%     $\textrm{Time}_1$ / $\textrm{Time}_n)$ vs. number of threads on the x-axis. Briefly discuss the scalability of each application: e.g.,
+%     linear/sub-linear/super-linear. Do any of the applications gain a significant speedup with more threads? Explain what you consider to
+%     be ``significant''. 
+
+%     \begin{figure}[!htbp]
+%         \centering
+%         \includesvg{result/report/part2b}
+%         \caption{PARSEC Benchmarks Scalability Performance}
+%       \end{figure} 
+
+%       \input{result/report/p23}
+      
+%       We average the result across \textbf{\emph{ten}} runs.
+    
+% \end{enumerate}
+
+
+
+
+\section*{Part 3 [34 points]}
+\begin{enumerate}
+    \item \textbf{[17 points]} With your scheduling policy, run the entire workflow 3 separate times. For each run, measure the execution time of each PARSEC job, as well as the latency outputs of memcached running with a steady client load of 30K QPS. For each PARSEC application, compute the mean and standard deviation of the execution time across three runs. Also compute the mean and standard deviation of the total time to complete all jobs. Fill in the table below. Finally, compute the SLO violation ratio for memcached for the three runs; the number of datapoints with 95th percentile latency $\textgreater$ 2ms, as a fraction of the total number of datapoints.  Do three plots (one for each run) of memcached p95 latency (y-axis) over time (x-axis) with annotations showing when each parsec job started.
+    
+    
+    The SLO violation rate is \textbf{\emph{0.00\%}} for all three runs.
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ |c|c|c|c|c|} 
+            \hline
+            job name & mean time [s] & std [s] \\ \hline \hline
+            dedup         & 37.33 & 1.70 \\  \hline
+            blackscholes  & 348.33 & 4.50 \\  \hline
+            ferret        & 174.33 &  0.47 \\  \hline
+            freqmine      & 96.67 & 0.47 \\  \hline
+            canneal       & 140.67 & 3.30 \\  \hline
+            fft           & 80.33	 & 1.25 \\  \hline
+            total time    & 348.33 & 	4.50\\ \hline
+        \end{tabular}
+    \end{table}
+    \item \textbf{[17 points]} Describe and justify the “optimal” scheduling policy you have designed. This is an open question, but you should at minimum answer the following questions: 
+    \begin{itemize}
+        \item	Which node does memcached run on?
+        
+        The node with 2 cores.
+        
+        \item	Which node does each of the 6 PARSEC apps run on?
+        
+        \texttt{blackscholes} runs on the 2-core node. \texttt{canneal, fft, dedup} run on the 4-core node.
+        \texttt{ferret, freqmine} run on the 8-core node.
+        \item	Which jobs run concurrently / are collocated?
+        
+        \texttt{canneal, fft, dedup} are collocated. \texttt{ferret, freqmine} are collocated. All jobs on the same machine run sequentially.
+        \item	In which order did you run 6 PARSEC apps?
+        
+        We first run \texttt{blackscholes} on the 2-core machine, \texttt{canneal} on the 4-core machine, and \texttt{ferret} on the 8-core machine.
+        Then we run \texttt{fft} and \texttt{dedup} sequentially on the 4-core machine. We also run \texttt{freqmine} on the 8-core machine immediately after \texttt{ferret} finishes. 
+        \item	How many threads you used for each of the 6 PARSEC apps? 
+        
+        We use one thread to run \texttt{blackscholes}, 4 threads to run \texttt{canneal, fft, dedup}, and 8 threads to run \texttt{ferret, freqmine}.
+    \end{itemize}
+    Describe how you implemented your scheduling policy. Which files did you modify or add and in what way? Which Kubernetes features did you use? Please attach your modified/added YAML files, run scripts and report as a zip file.
+    
+    We modify the \texttt{yaml} file for each job. We also carefully monitor the status of the running jobs
+    to start the next job
+    scheduled  immediately. We use the \texttt{NodeSelect} feature of Kubernetes so that we can deploy the job on the desired machine.
+    We also use the command \texttt{taskset} to specify the CPU affinity.
+    
+    \textbf{Important: The search space of all the possible policies is exponential and you do not have enough credit to run all of them. We do not ask you to find the policy that minimizes
+    the total running time, but rather to design a policy that has a reasonable running time, does not violate the SLO and takes into account the characteristics of the first two parts of the project.}
+\end{enumerate}
+
+\newpage
+
+\section*{Part 4 [76 points]}
+
+\begin{enumerate}
+    \itemsep 2em
+    \item \textbf{[10 points]} How does memcached performance vary with the number of threads ($T$) and number of cores ($C$) allocated to the job? In a single graph, plot the 95th percentile latency (y-axis) vs. QPS (x-axis) of memcached (running alone, with no other jobs collocated on the server) for the following configurations (one line each):
+    \begin{itemize}
+        \item Memcached with $T$=1 thread, $C$=1 core
+        \item Memcached with $T$=1 thread, $C$=2 cores
+        \item Memcached with $T$=2 threads, $C$=1 core
+        \item Memcached with $T$=2 threads, $C$=2 cores
+    \end{itemize}
+    \begin{figure}[!htbp]
+      \centering
+      \includesvg{result/report/part4}
+      \caption{\small{\texttt{Memcached} Latency Distribution with Different Configurations under Achieved p95 QPS}}
+        \label{fig:1}
+    \end{figure} 
+    
+    For this question, use the following \texttt{mcperf} command to vary QPS from 5K to 120K: 
+    \begin{Verbatim}[fontsize=\small]
+        $ ./mcperf -s INTERNAL_MEMCACHED_IP --loadonly 
+        $ ./mcperf -s INTERNAL_MEMCACHED_IP -a INTERNAL_AGENT_IP  \
+        --noload -T 16 -C 4 -D 4 -Q 1000 -c 4 -t 5 \ 
+        --scan 5000:120000:5000
+    \end{Verbatim}
+    
+    Label the axes in your plot. State how many runs you averaged across (we recommend three runs) and include error bars. The readability of your plot will be part of your grade.
+    
+    What do you conclude from the results in your plot? Summarize in 2-3 brief sentences how memcached performance varies with the number of threads and cores. 
+    
+
+    We average the result across \textbf{\emph{three}} runs.When there's only one thread, the performance does not change w.r.t the number of cores, and it saturates around 75K. When we run two threads on two cores, the performance is the best among all, and the latency is around 1ms. When we run two threads on only one core, the latency gets bigger quickly and up to 2.5 ms, and it saturates around 80K due to possible contentions.  
+    \item \textbf{[8 points]} Now assume you need to support a memcached request load that ranges from 5K to 100K QPS while guaranteeing a 2ms 95th percentile latency SLO. \\
+    
+    a) To support the highest load in the trace (100K QPS) without violating the 2ms latency SLO, how many memcached threads ($T$) and CPU cores ($C$) will you need? i.e., what value of $T$ and $C$ would you select? \\
+    
+
+    $\mathbf{T=2}$, and $\mathbf{C=2}$
+
+
+    b) Assume you can change the number of cores allocated to memcached dynamically as the QPS varies from 5K to 100K, but the number of threads is fixed when you launch the memcached job. How many memcached threads ($T$) do you propose to use to guarantee the 2ms 95th percentile latency SLO while the load varies between 5K to 100K QPS? i.e., what values of $T$ would you select? \\
+    
+    
+    $\mathbf{T = 2}$
+    
+    
+    c) Run memcached with the number of threads $T$ that you proposed in b) above and measure performance with $C=1$ and $C=2$. Use the following \texttt{mcperf} command to sweep QPS from 5K to 100K:
+    
+    \begin{Verbatim}[fontsize=\small]
+        $ ./mcperf -s INTERNAL_MEMCACHED_IP --loadonly 
+        $ ./mcperf -s INTERNAL_MEMCACHED_IP -a INTERNAL_AGENT_IP  \
+        --noload -T 16 -C 4 -D 4 -Q 1000 -c 4 -t 5 \ 
+        --scan 5000:100000:5000
+    \end{Verbatim}
+    
+    Measure the CPU utilization on the memcached server at each 5-second load time step.
+    
+    Plot the performance of memcached using 1-core ($C=1$) and using 2 cores ($C=2$) in \textbf{two separate graphs}, for $C=1$ and $C=2$,  respectively. In each graph, plot QPS on the x-axis, ranging from 5K to 100K. In each graph, use two y-axes. Plot the 95th percentile latency on the left y-axis. Draw a dotted horizontal line at the 2ms latency SLO. Plot the CPU utilization (ranging from 0\% to 100\% for $C=1$ or 200\% for $C=2$) on the right y-axis. For simplicity, we do not require error bars for these plots. 
+    
+
+
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=\textwidth]{21.pdf}
+        \caption{\textbf{2c)} Performance of \texttt{memcached} using 1-core ($C$ = 1)}
+        \label{fig:2}
+    \end{figure} 
+  
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=\textwidth]{2-2.pdf}
+        \caption{\textbf{2c)} Performance of \texttt{memcached} using 2-core ($C$ = 2)}
+    \end{figure} 
+
+
+
+    \item \textbf{[15 points]} You are now given a dynamic load trace for memcached, which varies QPS randomly between 5K and 100K in 10 second time intervals. Use the following command to run this trace: 
+    \begin{Verbatim}[fontsize=\small]
+        $ ./mcperf -s INTERNAL_MEMCACHED_IP --loadonly 
+        $ ./mcperf -s INTERNAL_MEMCACHED_IP -a INTERNAL_AGENT_IP \ 
+        --noload -T 16 -C 4 -D 4 -Q 1000 -c 4 -t 1800 \ 
+        --qps_interval 10 --qps_min 5000 --qps_max 100000
+    \end{Verbatim}
+    
+    Note that you can also specify a random seed in this command using the \texttt{--qps\_seed} flag. \\
+
+    Design and implement a controller to schedule memcached and the PARSEC benchmarks on the 4-core VM. The goal of your scheduling policy is to successfully complete all PARSEC jobs as soon as possible without violating the 2ms 95th percentile latency for memcached. \textbf{Your controller should not assume prior knowledge of the dynamic load trace. You should design your policy to work well regardless of the random seed.} Also make sure to check that all the PARSEC jobs complete successfully and do not crash. Note that PARSEC jobs may fail if given insufficient resources. \\
+    
+    Describe how you designed and implemented your scheduling policy. Include the source code of your controller in the zip file you submit. To describe your scheduling policy, you should at minimum answer the following questions. For each, also \textbf{explain why}:
+    \begin{itemize}
+        \item How do you decide how many cores to dynamically assign to memcached? 
+
+        Initially, we assign one core to the two-threaded memcached.
+        We can see from Fig \ref{fig:1} and Fig \ref{fig:2} that to meet the SLO, the single core's CPU utilization
+        can not exceed 70\%(we use 60\% in practice). So when the single core's utilization is larger than 70\%, we assign another core to memcached. Likewise, when the two cores' utilization fall below 70\% in total, we only give one core to memcached. 
+
+
+        \item How do you decide how many cores to assign each PARSEC job? 
+
+        We learn from part 1 and part 2 that all the PARSEC jobs have a reasonably good speedup
+        with two threads. So we assign most cores to long-running jobs(i.e., to reduce the bottleneck).
+
+        \item How many threads do you use for each of the PARSEC apps? 
+
+        We use two threads for \texttt{ferret, blackscholes, freqmine, canneal}. 
+        We use one thread for \texttt{dedup, fft}. The reason is the same as above(assigning more resources for long-running jobs).
+        \item Which jobs run concurrently / are collocated and on which cores? 
+       
+       \texttt{ferret, blackscholes, freqmine, canneal} run on cores 2-3 concurrently.
+       \texttt{dedup, fft} run on core 1 concurrently. The reason is the same as above.
+
+        \item In which order did you run the PARSEC apps? 
+
+        We submit all the jobs at the start time. Cores 2-3 are dedicated to run \texttt{ferret, blackscholes, freqmine, canneal} to decrease the bottleneck.
+        Core 0 is dedicated to memcached. Core 1 is shared between \texttt{dedup, fft} and memcached to meet the SLO.
+        When memcached uses core 1, \texttt{dedup, fft} pause until memcached does not need it.
+        Core 1 will not become the bottleneck in practice, so pausing these two workloads for SLO justifies. 
+
+        \item How does your policy differ from the policy in Part 3? 
+
+        \emph{Firstly}, in part 3, we start the job sequentially and carefully pick the order to reduce the potential interference(e.g., \texttt{llc}).
+        In part 4, we  start the job on the same core concurrently and leave the scheduling part to the operating system.
+        These two approaches show similar results in practice. 
+        \emph{Secondly}, in part 4, we also optionally pause some workloads for memcached, because the SLO in part 4 is stricter than that in part 3.
+
+
+        \item How did you implement your policy? e.g., docker cpu-set updates, taskset updates for memcached, pausing/unpausing containers, etc.
+        
+        We use \texttt{docker run cpu-set} at the start time to pin specific workloads on specific cores,
+        as is discussed above.
+        We monitor the CPU usage of the memcached. When the usage is bigger than 70\%, memcached uses core 0-1, and we use \texttt{docker pause}
+        to pause \texttt{dedup, fft}. When the usage is less than 70\%, we pin memcached only on core 0 and use \texttt{docker unpause} for \texttt{fft, dedup} to resume them if necessary. 
+        We use \texttt{taskset} to pin memcached on specific cores.
+    \end{itemize}
+    
+    
+    \item \textbf{[23 points]} Run the following \texttt{mcperf} memcached dynamic load trace: 
+    
+    \begin{Verbatim}[fontsize=\small]
+        $ ./mcperf -s INTERNAL_MEMCACHED_IP --loadonly 
+    $ ./mcperf -s INTERNAL_MEMCACHED_IP -a INTERNAL_AGENT_IP \ 
+    --noload -T 16 -C 4 -D 4 -Q 1000 -c 4 -t 1800 \ 
+    --qps_interval 10 --qps_min 5000 --qps_max 100000 \ 
+    --qps_seed 42
+\end{Verbatim}
+
+
+Measure memcached and PARSEC performance when using your scheduling policy to launch workloads and dynamically adjust container resource allocations. Run this workflow 3 separate times. For each run, measure the execution time of each PARSEC job, as well as the latency outputs of memcached. For each PARSEC application, compute the mean and standard deviation of the execution time across three runs. Also compute the mean and standard deviation of the total time to complete all jobs. Fill in the table below.  Also compute the SLO violation ratio for memcached for each of the three runs; the number of datapoints with 95th percentile latency $\textgreater$ 2ms, as a fraction of the total number of datapoints.  \\
+
+The SLO violation ratio is \emph{\textbf{1.11\%, 1.11\%,1.11\%}}. 
+The table is as follows. \emph{(Note: we also treat the pause time as part of the  execution time)}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ |c|c|c|c|c|} 
+        \hline
+        job name & mean time [s] & std [s] \\
+        \hhline{|=|=|=|}
+        dedup         & 475.67 & 2.08 \\  \hline
+        blackscholes  & 681.67 & 21.03 \\  \hline
+        ferret        & 1460.00 & 23.64 \\  \hline
+        freqmine      & 1192.67 & 54.52 \\  \hline
+        canneal       & 1093.00 & 73.67 \\  \hline
+        fft           & 331.67 & 7.23 \\  \hline
+        total time    & 1465.33 &  24.11 \\ \hline
+        \end{tabular}
+    \end{table}
+    
+   Include six plots -- two plots for each of the three runs -- with the following information. Label the plots as 1A, 1B, 2A, 2B, 3A, and 3B where the number indicates the run and the letter indicates the type of plot (A or B), which we describe below. In all plots, time will be on the x-axis and you should annotate the x-axis to indicate which PARSEC benchmark starts executing at which time. If you pause/unpause any workloads as part of your policy, you should also indicate the timestamps at which jobs are paused and unpaused. All the plots will have have two y-axes. The right y-axis will be QPS. For Plots A, the left y-axis will be the 95th percentile latency. For Plots B, the left y-axis will be the number of CPU cores that your controller allocates to memcached. 
+
+
+    \item \textbf{[20 points]} Repeat Part 4 Question 4 with a modified \texttt{mcperf} dynamic load trace with a 5 second time interval (\texttt{qps\_interval}) instead of 10 second time interval. Use the following command: 
+    
+                \begin{Verbatim}[fontsize=\small]
+$ ./mcperf -s INTERNAL_MEMCACHED_IP --loadonly 
+$ ./mcperf -s INTERNAL_MEMCACHED_IP -a INTERNAL_AGENT_IP \ 
+           --noload -T 16 -C 4 -D 4 -Q 1000 -c 4 -t 1800 \ 
+           --qps_interval 5 --qps_min 5000 --qps_max 100000 \ 
+           --qps_seed 42
+\end{Verbatim}
+    
+    You do not need to include the plots or table from Question 4 for the 5-second interval. Instead, summarize in 2-3 sentences how your policy performs with the smaller time interval (i.e., higher load variability) compared to the original load trace in Question 4. What is the SLO violation ratio for memcached (i.e., the number of datapoints with 95th percentile latency $\textgreater$ 2ms, as a fraction of the total number of datapoints)  with the 5-second time interval trace? \\
+    
+    The SLO violation ratio for memcached  with the 5-second time interval trace is \textbf{\emph{1.67\%}}.
+
+    What is the smallest \texttt{qps\_interval} you can use in the load trace that allows your controller to respond fast enough to keep the memcached SLO violation ratio under 3\%? Use this \texttt{qps\_interval} in the command above and collect results for three runs. Include the same types of plots (1A, 1B, 2A, 2B, 3A, 3B) and table as in Question 4. 
+    
+    
+    The smallest \texttt{qps\_interval} we can use to keep the memcached SLO violation ratio under 3\% is \emph{\textbf{3}}.
+    The SLO violation ratio is \emph{\textbf{2.83\%, 3.00\%, 2.33\%}}.
+    The table is as follows. \emph{(Note: we also treat the pause time as part of the  execution time)}
+    
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ |c|c|c|c|c|} 
+        \hline
+        job name & mean time [s] & std [s] \\
+        \hhline{|=|=|=|}
+        dedup         & 565.67 & 4.04 \\  \hline
+        blackscholes  & 652.00 & 35.38 \\  \hline
+        ferret        & 1469.67 &  17.01 \\  \hline
+        freqmine      & 1169.67 & 64.01 \\  \hline
+        canneal       & 997.33 &  66.43 \\  \hline
+        fft           & 451.67 &  3.06 \\  \hline
+        total time    & 1476.33 & 17.04 \\ \hline
+        \end{tabular}
+    \end{table}
+    
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

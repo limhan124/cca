@@ -1,0 +1,700 @@
+1.
+kubectl get jobs
+NAME                  COMPLETIONS   DURATION   AGE
+parsec-splash2x-fft   1/1           66s        69s
+***************************************************************************************************
+kubectl logs parsec-splash2x-fft-zkhll
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 1:  5125044
+FFt1DOnce: iter_num = 114688
+Step 2: 10984310
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  2222083
+Transpose: iter_num = 0
+Step 4: 10435036
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1722073
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30490954        9069200       0.29744
+
+                 TIMING INFORMATION
+Start time                        : 1617271729599040
+Initialization finish time        : 1617271761377106
+Overall finish time               : 1617271791868060
+Total time with initialization    :         62269020
+Total time without initialization :         30490954
+Overall transpose time            :          9069200
+Overall transpose fraction        :          0.29744
+
+
+real	1m2.764s
+user	2m17.732s
+sys	0m17.445s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+2.
+kubectl get jobs
+NAME                  COMPLETIONS   DURATION   AGE
+parsec-splash2x-fft   1/1           66s        69s
+***************************************************************************************************
+kubectl logs parsec-splash2x-fft-7rgm4
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5221410
+Step 2: 10962058
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  2131802
+Transpose: iter_num = 0
+Step 4: 10425860
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1767648
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30509032        9120860       0.29896
+
+                 TIMING INFORMATION
+Start time                        : 1617271809372825
+Initialization finish time        : 1617271841105097
+Overall finish time               : 1617271871614129
+Total time with initialization    :         62241304
+Total time without initialization :         30509032
+Overall transpose time            :          9120860
+Overall transpose fraction        :          0.29896
+
+
+real	1m2.721s
+user	2m17.869s
+sys	0m17.572s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+3.
+kubectl get jobs
+NAME                  COMPLETIONS   DURATION   AGE
+parsec-splash2x-fft   1/1           66s        69s
+***************************************************************************************************
+kubectl logs parsec-splash2x-fft-s9d5s
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5177684
+Transpose: iter_num = 0
+Step 2: 11044805
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  2055486
+Step 4: 10292450
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1725400
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30296043        8958570       0.29570
+
+                 TIMING INFORMATION
+Start time                        : 1617271888369552
+Initialization finish time        : 1617271920262030
+Overall finish time               : 1617271950558073
+Total time with initialization    :         62188521
+Total time without initialization :         30296043
+Overall transpose time            :          8958570
+Overall transpose fraction        :          0.29570
+
+
+real	1m2.680s
+user	2m17.288s
+sys	0m17.950s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+4.
+kubectl get jobs
+NAME                  COMPLETIONS   DURATION   AGE
+parsec-splash2x-fft   1/1           65s        69s
+***************************************************************************************************
+kubectl logs parsec-splash2x-fft-kmtwr
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5252118
+Transpose: iter_num = 0
+Step 2: 10925244
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  2219997
+Step 4: 10318264
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1765525
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30484434        9237640       0.30303
+
+                 TIMING INFORMATION
+Start time                        : 1617271967594080
+Initialization finish time        : 1617271999281938
+Overall finish time               : 1617272029766372
+Total time with initialization    :         62172292
+Total time without initialization :         30484434
+Overall transpose time            :          9237640
+Overall transpose fraction        :          0.30303
+
+
+real	1m2.661s
+user	2m18.055s
+sys	0m17.659s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+5.
+kubectl get jobs
+NAME                  COMPLETIONS   DURATION   AGE
+parsec-splash2x-fft   1/1           66s        68s
+***************************************************************************************************
+kubectl logs parsec-splash2x-fft-kdhs7
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5185289
+Step 2: 10956893
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  2104898
+Step 4: 10286040
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1726611
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30264158        9016798       0.29794
+
+                 TIMING INFORMATION
+Start time                        : 1617272048089875
+Initialization finish time        : 1617272079876787
+Overall finish time               : 1617272110140945
+Total time with initialization    :         62051070
+Total time without initialization :         30264158
+Overall transpose time            :          9016798
+Overall transpose fraction        :          0.29794
+
+
+real	1m2.537s
+user	2m17.495s
+sys	0m17.455s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+
+
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5216080
+Transpose: iter_num = 0
+Step 2: 10999594
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  1880954
+Transpose: iter_num = 0
+Step 4: 10357226
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1701498
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30155549        8798532       0.29177
+
+                 TIMING INFORMATION
+Start time                        : 1618095011811955
+Initialization finish time        : 1618095043495742
+Overall finish time               : 1618095073651291
+Total time with initialization    :         61839336
+Total time without initialization :         30155549
+Overall transpose time            :          8798532
+Overall transpose fraction        :          0.29177
+
+
+real	1m2.380s
+user	2m16.943s
+sys	0m17.769s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5224168
+Transpose: iter_num = 0
+Step 2: 11023392
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  1871841
+Transpose: iter_num = 0
+Step 4: 10346236
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1685839
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30160753        8781848       0.29117
+
+                 TIMING INFORMATION
+Start time                        : 1618095087113334
+Initialization finish time        : 1618095118946593
+Overall finish time               : 1618095149107346
+Total time with initialization    :         61994012
+Total time without initialization :         30160753
+Overall transpose time            :          8781848
+Overall transpose fraction        :          0.29117
+
+
+real	1m2.533s
+user	2m17.309s
+sys	0m17.650s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5226082
+Transpose: iter_num = 0
+Step 2: 10991467
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  1928761
+Step 4: 10314575
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1703133
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30166562        8857976       0.29364
+
+                 TIMING INFORMATION
+Start time                        : 1618095159023099
+Initialization finish time        : 1618095190713274
+Overall finish time               : 1618095220879836
+Total time with initialization    :         61856737
+Total time without initialization :         30166562
+Overall transpose time            :          8857976
+Overall transpose fraction        :          0.29364
+
+
+real	1m2.382s
+user	2m16.594s
+sys	0m18.139s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+FFt1DOnce: iter_num = 114688
+Step 1:  5409668
+Step 2: 10971251
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  1891034
+Transpose: iter_num = 0
+Step 4: 10348352
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1844856
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30465433        9145558       0.30019
+
+                 TIMING INFORMATION
+Start time                        : 1618095232399111
+Initialization finish time        : 1618095264197165
+Overall finish time               : 1618095294662598
+Total time with initialization    :         62263487
+Total time without initialization :         30465433
+Overall transpose time            :          9145558
+Overall transpose fraction        :          0.30019
+
+
+real	1m2.802s
+user	2m17.728s
+sys	0m17.500s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+
+
+[PARSEC] Benchmarks to run:  splash2x.fft
+
+[PARSEC] [========== Running benchmark splash2x.fft [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/run.sh 4 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec-benchmark/ext/splash2x/kernels/fft/inst/amd64-linux.gcc/bin/fft -m28 -p4:
+
+FFT with Blocking Transpose
+   268435456 Complex Doubles
+   4 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+iter_num = 4096
+Transpose: iter_num = 0
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 1:  5174056
+FFt1DOnce: iter_num = 114688
+Transpose: iter_num = 0
+Step 2: 11067915
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 3:  1853037
+Transpose: iter_num = 0
+Step 4: 10347794
+Transpose: iter_num = 16777216
+Transpose: iter_num = 33554432
+Transpose: iter_num = 50331648
+Step 5:  1711640
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0          30154806        8738733       0.28980
+
+                 TIMING INFORMATION
+Start time                        : 1618095307449920
+Initialization finish time        : 1618095339181616
+Overall finish time               : 1618095369336422
+Total time with initialization    :         61886502
+Total time without initialization :         30154806
+Overall transpose time            :          8738733
+Overall transpose fraction        :          0.28980
+
+
+real	1m2.418s
+user	2m16.594s
+sys	0m18.104s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.

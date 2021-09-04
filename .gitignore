@@ -1,0 +1,13 @@
+*.aux
+*.log
+result/data*
+*table.tex
+*.bak
+*.svg
+svg-inkscape/
+*.out
+main.pdf
+results.json
+part4/*
+log.txt
+*.pdf

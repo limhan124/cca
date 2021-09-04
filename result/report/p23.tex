@@ -1,0 +1,14 @@
+
+
+\emph{\textbf{(a)}} Only \texttt{fft},  \texttt{freqmine}, and \texttt{ferret} scale linearly to two threads. 
+\emph{\textbf{(b)}} Only \texttt{fft} and \texttt{freqmine} scale linearly to four threads.
+\emph{\textbf{(c)}} All other cases fall within scaling sub-linearly.
+We define \emph{scale linearly} as achieving at least 95\% of its theoretical performance. In other words, to be considered for \emph{scaling linearly}, the speedup should achieve at least $0.95n$ when there are $n$ threads.
+
+We define \emph{significant} as achieving at least 80\% of its theoretical performance.
+In other words, to be considered for \emph{significant}, 
+the speedup should achieve at least $0.8n$ when there are $n$ threads.
+\emph{\textbf{(a)}} All applications gain significant speedup when there are two threads.
+\emph{\textbf{(b)}} Only \texttt{fft}, \texttt{freqmine}, and \texttt{ferret} gain significant speedup when there are 
+four threads. 
+\emph{\textbf{(c)}} No application gains significant speedup when there are eight threads. 

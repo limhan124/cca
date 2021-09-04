@@ -1,0 +1,38 @@
+
+
+\emph{\textbf{(a)}} \texttt{Memcached} with \texttt{CPU} interference saturates at around 25K.
+The tail latency is about 4x - 6x both under normal QPS and under the saturate point compared with no interference.
+This result means \texttt{memcached} is computation-intensive and uses CPU heavily. When there is interference at the CPU level,
+the performance drops down significantly.
+
+
+\emph{\textbf{(b)}}
+\texttt{Memcached} with \texttt{l1i} interference saturates at around 25K.
+The tail latency is about 4x - 6x both under normal QPS and under the saturate point compared with no interference.
+We expect that most applications will be to a large extent sensitive to the interference of \texttt{l1i} because every program needs to fetch instructions from \texttt{l1i}, as is also the case of \texttt{memcached}.  
+From the plot, we can also see that the CPU and \texttt{l1i} are closely coupled with each other at a higher QPS. At a lower QPS, however, 
+the tail latency of interference from the  CPU is  higher than the interference from \texttt{l1i}. This phenomenon is probably because the
+ instructions' computation time bottlenecks the application rather than the stall time of fetching instructions at this stage.
+
+
+\emph{\textbf{(c)}}
+The result of interference from \texttt{l1d} and \texttt{l2} is similar. They both saturate at around 50K, and the tail latency is around 2ms at the saturated point, almost identical to the no interference case.
+This result means that the interference from \texttt{l1d} and \texttt{l2} does not affect \texttt{memcached}. That is to say, most of the memory requests from \texttt{memcached} do not go to \texttt{l1d} or \texttt{l2}.
+Probably this phenomenon is  because \texttt{memcached} has a working set size larger than \texttt{l2}, or its access pattern is random.
+
+
+\emph{\textbf{(d)}}
+The result of interference from \texttt{llc} is interesting. It saturates at around 30K. The tail latency is around 2x - 4x compared with no interference.
+We can see that the tail latency increases dramatically between 10K and 20K but fluctuates between 20K and 30K. This result is probably
+because the working set size at QPS 10K to 20K is smaller than \texttt{llc}, so the interference at the \texttt{llc} level will affect significantly during this stage.
+However, when the QPS goes to around 20K to 30K, some memory requests will miss in \texttt{llc} and start to go to RAM, so the interference at \texttt{llc} does not affect that much.
+
+
+\emph{\textbf{(e)}}
+The result of interference from \texttt{memBW} is also noteworthy. 
+It saturates at around 45K. 
+When QPS is lower than 20K, the tail latency is almost the same as with no interference.
+This phenomenon is because almost all of the memory requests at this stage go to \texttt{llc}, so the interference at the RAM level does not affect that much.
+When it goes to a higher QPS, the tail latency is about 1x - 1.5x as of the case with no interference. This result is because some of the memory requests start to go to the RAM, so the interference in the RAM begins to play a role.
+Also, note that  the tail latency with interference from \texttt{memBW} is much smaller than that of  the interference from \texttt{llc}.
+This observation means that, even with higher QPS, most of the memory requests go to \texttt{llc}.   So \texttt{memcached} is more sensitive to the interference from \texttt{llc}.

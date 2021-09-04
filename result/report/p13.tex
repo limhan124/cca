@@ -1,0 +1,9 @@
+
+
+We use \texttt{taskset} command  to pin a process on a specific set of CPU cores.
+\emph{\textbf{(a)}} For interference \texttt{CPU}, \texttt{l1d}, \texttt{l1i}, and \texttt{l2}, the
+related components are private to a single CPU core, so we have to use the same core as
+\texttt{memcached}. 
+\emph{\textbf{(b)}} For interference \texttt{llc} and \texttt{memBW}, the related components are
+public across CPU cores, so we want to use different cores from \texttt{memcached} to reduce
+unwanted influences.

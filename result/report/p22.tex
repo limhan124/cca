@@ -1,0 +1,10 @@
+
+
+\emph{\textbf{(a)}} \texttt{dedup} has a working set size smaller than  \texttt{llc} but larger than \texttt{l2}.
+\emph{\textbf{(b)}} \texttt{blackscholes} does not have strict resource requirements.
+\emph{\textbf{(c)}} \texttt{ferret} is highly memory-intensive and has a working set size larger than \texttt{llc}.
+\emph{\textbf{(d)}} \texttt{freqmine} is computation-intensive. It uses CPU heavily.
+\emph{\textbf{(e)}} \texttt{canneal} has a working set size smaller than \texttt{llc} but larger than \texttt{l2}.
+\emph{\textbf{(f)}} \texttt{fft} has a working set size smaller than \texttt{llc} but larger than \texttt{l2}.
+As is discussed in Part1\ref{p1:d}, only interferences from \texttt{l1d} and \texttt{l2} are allowed. So
+only \texttt{blackscholes} is a suitable candidate to collocate \texttt{memcached} without violating the SLO.

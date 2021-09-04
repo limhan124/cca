@@ -1,0 +1,6 @@
+
+
+We can  see from Figure\ref{fig:1} that \texttt{memBW}, \texttt{l2}, \texttt{l1d} are candidates for this SLO.
+However, \texttt{memBW} has a higher variance and may exceed 2ms in extreme situations. 
+Therefore, \texttt{l2} and \texttt{l1d} can safely be collocated
+with \texttt{memcached} without violating this SLO.
